@@ -7,7 +7,6 @@
 // node modules
 var fs       = require('fs');
 var path     = require('path');
-var semver   = require('semver');
 var should   = require('should');
 var Markdown = require('markdown-it');
 
@@ -19,7 +18,7 @@ var apidoc = require('../lib/index');
 describe('apiDoc full parse', function() {
 
     // get latest example for the used apidoc-spec
-    var latestExampleVersion = semver.maxSatisfying(versions, '~' + apidoc.getSpecificationVersion()); // ~0.2.0 = >=0.2.0 <0.3.0
+    var latestExampleVersion = apidoc.getSpecificationVersion();
 
     var exampleBasePath = 'node_modules/apidoc-example/' + latestExampleVersion;
     var fixturePath = exampleBasePath + '/fixtures';
